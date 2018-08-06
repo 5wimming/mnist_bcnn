@@ -32,7 +32,7 @@ network = tflearn.residual_bottleneck(network, 2, 64, 256)
 network = tflearn.batch_normalization(network)
 
 network = tflearn.activation(network, 'relu')
-print("#########################################3:",network.get_shape())
+
 
 #network = fully_connected(network, 10, activation='softmax')
 
@@ -50,25 +50,17 @@ net = tflearn.residual_bottleneck(net, 2, 64, 256)
 net = tflearn.batch_normalization(net)
 
 net = tflearn.activation(net, 'relu')
-print("******************************************3:",net.get_shape())
+
 
 net = tf.transpose(net, perm=[0,3,1,2])
 network = tf.transpose(network, perm=[0,3,1,2])
-#print("aaaaaaaaaaaaa11:",net.get_shape())
-#print("aaaaaaaaaaaaa22:",network.get_shape())
-#net = tflearn.reshape(net,new_shape=[-1,256,49])
-#network = tflearn.reshape(network,new_shape=[-1,256,49])
-
-#network = tf.transpose(network, perm=[0,2,1])
-#print("aaaaaaaaaaaaa1:",net.get_shape())
-#print("aaaaaaaaaaaaa2:",network.get_shape())
 
 
 bcnn = tf.matmul(net,network)
 
-print("aaaaaaaaaaaaa1:",network.get_shape())
+
 bcnn = tflearn.flatten(bcnn)
-print("aaaaaaaaaaaaa2:",bcnn.get_shape())
+
 #net = fully_connected(net, 10, activation='softmax')
 #net = tflearn.global_avg_pool(net)
 
